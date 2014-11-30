@@ -21,21 +21,28 @@ public class Ticket {
 	
 	private boolean state;
 	
-	private TicketCategory ticketCategory;
+	private String Category;
 
 	public Ticket() {
 		
 	}
 	
+	@Column
+	public String getCategory() {
+		return Category;
+	}
+
+	public void setCategory(String Category) {
+		this.Category = Category;
+	}
+
 	public Ticket(String question, String answer, int maxResponseTime,
 			boolean state) {
 		super();
-		this.id = id;
 		this.question = question;
 		this.answer = answer;
 		this.maxResponseTime = maxResponseTime;
 		this.state = state;
-		this.ticketCategory = ticketCategory;
 	}
 
 	@Id
@@ -83,19 +90,6 @@ public class Ticket {
 	public void setState(boolean state) {
 		this.state = state;
 	}
-
-	@OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-	public TicketCategory getTicketCategory() {
-		return ticketCategory;
-	}
-
-	public void setTicketCategory(TicketCategory ticketCategory) {
-		this.ticketCategory = ticketCategory;
-	}
-	
-	
-	
 	
 
 	

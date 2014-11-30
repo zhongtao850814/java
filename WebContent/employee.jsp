@@ -16,11 +16,11 @@
 			User user=(User)session.getAttribute("user"); 
 		%>
  
-
+<h1><% user.getId();%></h1>
 <h2>Welcome come!</h2>  <h2>${employee.getFirstName()} </h2> 
 <h2>${tickets.get(0).getId()}</h2>
 
-<form:form >
+<form:form   >
 
 		<table border="1">
 			<tr>
@@ -30,7 +30,7 @@
 				<th>Post time</th>
 				<th>Answer time</th>
 				<th>Question State</th>
-				<th>&nbsp;</th>
+				<th>Category</th>
 				<th>&nbsp;</th>
 			</tr>
 			<c:forEach items="${ticketHistory}" var="history">
@@ -48,8 +48,8 @@
 						test = '${tickets.get(history.ticketID-1).getState()==false}'>
 						<td>closed</td>
 					</c:if>
-					<td><a href="ticketcategory.request">details</a></td>
-					<td><a href="closequestion.request">close</a></td>
+					<td>${tickets.get(history.ticketID-1).getCategory() }</td>
+					<td><a href="editticketquestion.request?ticketid=${history.ticketID}">edit</a></td>
 			</c:forEach>
 		</table>
 		<a href="createquestion.request">Question</a>

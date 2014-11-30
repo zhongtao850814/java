@@ -86,5 +86,15 @@ public class TicketDaoHibernateImpl implements TicketDao {
 		return openTickets;
 	}
 
+	@Override
+	public int getLastTicketId() {
+		Session session = HibernateUtils.getSession();
+		Query q = session.createQuery("select max(ID) from Ticket");
+		List<Integer> counts = q.list();
+		session.close();
+		return new Integer("" + counts.get(0));
+	}
+	
+	
 
 }

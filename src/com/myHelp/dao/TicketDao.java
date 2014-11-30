@@ -22,4 +22,7 @@ public interface TicketDao {
 	public int getNumberOfTickets();
 	
 	public List<Ticket> getOpenTickets();
+	
+	public int getLastTicketId();
+	
 }

@@ -2,17 +2,9 @@ package com.myHelp.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 @Entity
-@Table(name = "TICKET_CATEGORY")
 public class TicketCategory {
 	
 	private int ticketCategoryID;
@@ -34,10 +26,9 @@ public class TicketCategory {
 		this.description = discription;
 	}
 
+
+
 	@Id
-	@GeneratedValue(generator = "generator")
-    @GenericGenerator(strategy = "foreign", name="generator",
-            parameters = @Parameter(name = "property", value="ticket"))
     @Column(name = "TICKET_CATEGORY_ID")
 	public int getTicketCategoryID() {
 		return ticketCategoryID;
